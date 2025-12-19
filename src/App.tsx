@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Loader2, Terminal, Zap } from 'lucide-react';
+import { Loader2, Terminal } from 'lucide-react';
 import OnboardingModal from './OnboardingModal';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
     <div className="h-screen w-full bg-black flex flex-col overflow-hidden font-mono">
