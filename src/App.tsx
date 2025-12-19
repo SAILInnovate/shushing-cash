@@ -25,7 +25,7 @@ function App() {
         )}
 
         <iframe
-          src="https://shushingcash.streamlit.app/?embed=true&theme=dark"
+          src="https://shushingcash-j58k7.ondigitalocean.app/?embed=true&theme=dark"
           className="w-full h-full border-0"
           onLoad={() => setIsLoading(false)}
           title="SHUSH.CASH Trading Dashboard"
