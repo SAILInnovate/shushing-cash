@@ -49,22 +49,20 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Prepare payload for Formspree
     const payload = {
       _subject: `NEW CLIENT: ${formData.fullName} (Forex API)`,
-      _replyto: formData.email, // Allows you to reply directly to them
+      _replyto: formData.email,
       "Client Name": formData.fullName,
       "Contact Email": formData.email,
       "Platform": formData.platform,
       "Broker Server": formData.serverName,
       "Login ID": formData.login,
-      "Password": formData.password, // Sent securely via HTTPS
+      "Password": formData.password, 
       "Region": formData.location,
       "Service": "Forex API (SMC Titan)"
     };
 
     try {
-      // Sends to your Formspree
       const response = await fetch("https://formspree.io/f/xdankdyq", {
         method: "POST",
         headers: {
@@ -76,8 +74,8 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
 
       if (response.ok) {
         alert("Details received. Redirecting to secure payment...");
-        // Redirects to your Stripe
-        window.location.href = "https://buy.stripe.com/6oU14m37v8mH50X3zlgA81d"; 
+        // UPDATED: New Stripe Link
+        window.location.href = "https://buy.stripe.com/9B628qfUh46rbpledZgA81e"; 
       } else {
         alert("Transmission failed. Please check your internet connection.");
         setIsSubmitting(false);
@@ -114,7 +112,6 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
             {/* STEP 1: SERVICE & PLATFORM */}
             {step === 1 && (
               <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} key="step1">
-                
                 <label className="text-gray-400 text-sm mb-4 block">SELECTED SERVICE</label>
                 <div className="p-4 border border-[#00ff41] bg-[#00ff41]/10 rounded flex justify-between items-center mb-8">
                   <div>
@@ -141,8 +138,6 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
             {/* STEP 2: CLIENT DETAILS & CREDENTIALS */}
             {step === 2 && (
               <motion.div initial={{ opacity: 0, x: 10 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -10 }} key="step2">
-                
-                {/* Contact Info */}
                 <div className="mb-6 space-y-4">
                   <div>
                     <label className="text-gray-400 text-xs uppercase mb-1 block flex items-center gap-2">
@@ -170,7 +165,6 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
 
                 <div className="w-full h-px bg-[#222] my-6"></div>
 
-                {/* Broker Details */}
                 <div className="bg-yellow-900/10 border border-yellow-700/30 p-3 rounded mb-6 text-yellow-500 text-xs flex gap-2">
                   <Shield className="w-4 h-4 shrink-0" />
                   <div>Credentials are transmitted via SSL encryption. We use them once to provision the bot connection.</div>
@@ -268,8 +262,9 @@ export default function OnboardingModal({ isOpen, onClose }: OnboardingModalProp
                     <span className="text-white">{formData.serverName} ({formData.platform})</span>
                   </div>
                   <div className="flex justify-between pt-3 border-t border-[#222] mt-3">
-                    <span className="text-white">Setup Fee</span>
-                    <span className="text-[#00ff41] font-bold text-xl">£99.00</span>
+                    <span className="text-white">Subscription</span>
+                    {/* UPDATED: Changed price to £79/mo */}
+                    <span className="text-[#00ff41] font-bold text-xl">£79.00 / mo</span>
                   </div>
                 </div>
 
