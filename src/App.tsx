@@ -46,7 +46,7 @@ function App() {
 
         {/* DigitalOcean Iframe */}
         <iframe
-          src="https://davisokolie-76d6b.ondigitalocean.app?embed=true&theme=dark"/?embed=true&theme=dark"
+          src="https://davisokolie-76d6b.ondigitalocean.app/?embed=true&theme=dark"
           className="w-full h-full border-0"
           onLoad={() => setIsLoading(false)}
           title="SMC-Titan Terminal"
